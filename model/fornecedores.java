@@ -7,7 +7,15 @@ public class fornecedores {
     private String nomeFantasia;
     private String cnpj;
    
-    
+    //Construtor
+    public fornecedores (int id,  String razaoSocial, String nomeFantasia, String cnpj) 
+    {
+        this.id = id;
+        this.razaoSocial = razaoSocial;
+        this.nomeFantasia= nomeFantasia;
+        this.cnpj = cnpj;
+        
+    }
 
 // criar os Getters e os  Setters
 //Getters = - retornam os dados 
@@ -26,16 +34,16 @@ public class fornecedores {
     }
 
     //retorno da razão social
-    public String getnome() {
+    public String getrazaoSocial() {
         return razaoSocial;
     }
     //inserção do razão social
-    public void setnome(String razaoSocial) {
+    public void setrazaoSocial(String razaoSocial) {
         this.razaoSocial = razaoSocial;
     }
 
     //retorno do nome fantasia
-    public String getnomeFantaisa(){
+    public String getnomeFantasia(){
     return nomeFantasia;
 
     }
@@ -51,7 +59,7 @@ public class fornecedores {
     }
 
     //inserção do cnpj
-    public void setEmail(String cnpj) {
+    public void setcnpj(String cnpj) {
         this.cnpj = cnpj;
     }
 

@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 
 //Essa class é responsavel por fazer a conexão do banco de dados projeto 
-public class conexao{
+public class Conexao{
 
     //Dados da conexão
     private static final String URL = "jdbc:mysql://localhost:3306/bookflow";

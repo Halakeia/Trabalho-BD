@@ -1,11 +1,13 @@
 package model;
 
+import java.time.LocalDate;
+
 public class cliente {
     private int id;
     private String nome;
     private String cpf;
     private String email;
-    private String dataNascimento;
+    private LocalDate dataNascimento;
     
 
 // criar os Getters e os  Setters
@@ -55,7 +57,7 @@ public class cliente {
     }
 
     //retorno da data de nascimento
-    public String getdataNascimento()
+    public LocalDate getdataNascimento()
     {
 
 
@@ -63,7 +65,7 @@ public class cliente {
     }
 
     //inserção da data de nascimento
-    public void setdataNascimento(String dataNascimento)
+    public void setdataNascimento(LocalDate dataNascimento)
     {
 
         this.dataNascimento = dataNascimento;
