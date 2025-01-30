@@ -6,13 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 public class Fornecedores 
 
 {
     
     // Cria um novo fornecedor
-    public void criar(fornecedores fornecedores) 
+    public void criar_Forncedores(fornecedores fornecedores) 
     {
         String sql = "INSERT INTO fornecedores(id,razaoSocial,nomeFantasia, cnpj) VALUES (?, ?)"; //como vai ser enviado para o banco de dados
         try (Connection conn = Conexao.conectar();
@@ -34,7 +33,6 @@ public class Fornecedores
                 }
     
             } 
-            
             catch (SQLException e) 
             {
                 throw new RuntimeException("Erro ao inserir fornecedor", e);
@@ -42,7 +40,7 @@ public class Fornecedores
         }
 
     //Método para Ler todos os fornecedores 
-    public List<fornecedores> listarFornecedores(){
+    public List<fornecedores> listar_Fornecedores(){
 
         List<fornecedores> lista = new ArrayList<>();
         String sql = "SELECT * FROM fornecedores";
@@ -64,7 +62,7 @@ public class Fornecedores
     }
 
     //Metodo para atualizar os dados 
-    public void atualizarUsuario(fornecedores fornecedores) {
+    public void atualizar_Fornecedor(fornecedores fornecedores) {
         String sql = "UPDATE usuarios SET nome = ?, email = ? WHERE id = ?";
 
         try (Connection conn = Conexao.conectar();
@@ -84,7 +82,7 @@ public class Fornecedores
 
 
     //Metodo para excluir um fornecedor 
-    public void deletarFornecedor(int id) {
+    public void deletar_Fornecedor(int id) {
         String sql = "DELETE FROM usuarios WHERE id = ?";
 
         try (Connection conn = Conexao.conectar();

@@ -47,9 +47,10 @@ public class fornecedores {
     return nomeFantasia;
 
     }
+    
 
     //inserção do nome fantasia
-    public void setcpf(String nomeFantasia) {
+    public void setnomeFantasia(String nomeFantasia) {
         this.nomeFantasia = nomeFantasia;
     }
 

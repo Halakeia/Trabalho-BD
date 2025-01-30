@@ -6,6 +6,22 @@ public class usuario {
     private String userName;
     private int senha;
 
+
+    public usuario (int id,  String userName, int senha) 
+    {
+        this.id = id;
+        this.userName = userName;
+        this.senha= senha;
+        
+    }
+
+    public usuario (String userName, int senha) 
+    {
+      
+        this.userName = userName;
+        this.senha= senha;
+        
+    }
     // criar os Getters e os  Setters
     //Getters = - retornam os dados 
     // Setters = - colocam os dados
@@ -23,11 +39,11 @@ public class usuario {
     }
 
     //retorno do nome
-    public String getnome() {
+    public String getuserName() {
         return userName;
     }
     //inserção do nome
-    public void setnome(String userName) {
+    public void setuserName(String userName) {
         this.userName = userName;
 
     }

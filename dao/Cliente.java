@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDate;
 
-
 public class Cliente {
     // basicamente conecto com meu banco de dados e falo pra ele o que estou "fazendo"
     
@@ -40,9 +39,5 @@ public class Cliente {
         //---- Método para listar todos os usuários
         //---- Método para excluir um usuário pelo ID
         //---- Método para buscar um usuário
-
-
-
-
 
 }
