@@ -6,7 +6,7 @@ import java.sql.SQLException;
 public class Conexao {
     private static final String URL = "jdbc:mysql://localhost:3306/bookflow";
     private static final String USER = "root"; // Seu usuário do MySQL
-    private static final String PASSWORD = "12345"; // Sua senha do MySQL
+    private static final String PASSWORD = "root"; // Sua senha do MySQL
 
     public static Connection conectar() {
         try {

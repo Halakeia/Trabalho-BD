@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDate;
 
-public class Cliente {
+public class ClienteDAO {
     // basicamente conecto com meu banco de dados e falo pra ele o que estou "fazendo"
     
         // Método para inserir um cliente

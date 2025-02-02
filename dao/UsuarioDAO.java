@@ -8,7 +8,7 @@ import java.util.List;
 
 //Todas as classes criadas com letra maiuscula pertencem ao DAO
 
-public class Usuario {
+public class UsuarioDAO {
     // Cria um novo fornecedor
     public void criar_Usuario(usuario usuario) 
     {
