@@ -22,45 +22,45 @@ public class fornecedores {
 // Setters = - colocam os dados
  
     //retorno do id
-    public int getid()
+    public int getId()
     {
     return id;
     }
 
     //inserção do id
-    public void setid(int id) 
+    public void setId(int id) 
     {
         this.id = id;
     }
 
     //retorno da razão social
-    public String getrazaoSocial() {
+    public String getRazaoSocial() {
         return razaoSocial;
     }
     //inserção do razão social
-    public void setrazaoSocial(String razaoSocial) {
+    public void setRazaoSocial(String razaoSocial) {
         this.razaoSocial = razaoSocial;
     }
 
     //retorno do nome fantasia
-    public String getnomeFantasia(){
+    public String getNomeFantasia(){
     return nomeFantasia;
 
     }
     
 
     //inserção do nome fantasia
-    public void setnomeFantasia(String nomeFantasia) {
+    public void setNomeFantasia(String nomeFantasia) {
         this.nomeFantasia = nomeFantasia;
     }
 
     //retorno do cnpj
-    public String getcnpj() {
+    public String getCnpj() {
         return cnpj;
     }
 
     //inserção do cnpj
-    public void setcnpj(String cnpj) {
+    public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
 
