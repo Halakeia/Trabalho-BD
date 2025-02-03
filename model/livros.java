@@ -11,8 +11,24 @@ public class livros {
     private int quantidade;
     private String descricao;
     private LocalDate dataCadastro;
-    private fornecedores fornecedores; //Representa o relacionamento com a tabela fornecedores
+    private int fornecedores;
+    private int editora; //Representa o relacionamento com a tabela fornecedores
     
+
+    
+    public livros(String nome, String nomeAutor,int fornecedores,int editora, String nomeEditora, double valor,int quantidade, String descricao, 
+    LocalDate dataCadastro) {
+        this.nome = nome;
+        this.nomeAutor = nomeAutor;
+        this.nomeEditora = nomeEditora;
+        this.valor= valor;
+        this.quantidade = quantidade;
+        this.descricao= descricao;
+        this.dataCadastro = dataCadastro;
+        this.fornecedores = fornecedores;
+        this.editora= editora;
+
+    }
 
 // criar os Getters e os  Setters
 //Getters = - retornam os dados 
@@ -84,7 +100,7 @@ public class livros {
     }
     
     //retorno da quantidade
-    public String descricao(){
+    public String getdescricao(){
         return descricao;
 
     }
@@ -96,11 +112,11 @@ public class livros {
     }
 
     //retorno da fk do fornecedor 
-    public fornecedores getfornecedores(){
+    public int getfornecedores(){
         return fornecedores;
     }
     //retorno da fk do fornecedor 
-    public void setfornecedores(fornecedores fornecedores){
+    public void setfornecedores(int fornecedores){
         this.fornecedores= fornecedores;
 
     }   
@@ -116,6 +132,14 @@ public class livros {
 
         this.dataCadastro= dataCadatro;
         
+    }
+
+    public int geteditora  (){
+        return editora;
+
+    }
+    public void seteditora(int editora ){
+        this.editora= editora;
     }
 
 }
