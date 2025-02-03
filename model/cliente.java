@@ -8,74 +8,66 @@ public class cliente {
     private String cpf;
     private String email;
     private LocalDate dataNascimento;
-    
 
-// criar os Getters e os  Setters
-//Getters = - retornam os dados 
-// Setters = - colocam os dados
- 
-    //retorno do id
-    public int getid()
-    {
-    return id;
+    public cliente(String nome, String cpf, String email, LocalDate dataNascimento) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
+        this.dataNascimento = dataNascimento;
     }
 
-    //inserção do id
-    public void setid(int id) 
-    {
+    // retorno do id
+    public int getId() {
+        return id;
+    }
+
+    // inserção do id
+    public void setId(int id) {
         this.id = id;
     }
 
-    //retorno do nome
-    public String getnome() {
+    // retorno do nome
+    public String getNome() {
         return nome;
     }
-    //inserção do nome
-    public void setnome(String nome) {
+
+    // inserção do nome
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    //retorno do cpf 
-    public String getcpf(){
-    return cpf;
+    // retorno do cpf
+    public String getCpf() {
+        return cpf;
 
     }
 
-    //inserção do cpf
-    public void setcpf(String cpf) {
+    // inserção do cpf
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    //retorno do email
+    // retorno do email
     public String getEmail() {
         return email;
     }
 
-    //inserção do email
+    // inserção do email
     public void setEmail(String email) {
         this.email = email;
     }
 
-    //retorno da data de nascimento
-    public LocalDate getdataNascimento()
-    {
-
+    // retorno da data de nascimento
+    public LocalDate getDataNascimento() {
 
         return dataNascimento;
     }
 
-    //inserção da data de nascimento
-    public void setdataNascimento(LocalDate dataNascimento)
-    {
+    // inserção da data de nascimento
+    public void setDataNascimento(LocalDate dataNascimento) {
 
         this.dataNascimento = dataNascimento;
-        
+
     }
 
 }
-
-
-
-
-
-

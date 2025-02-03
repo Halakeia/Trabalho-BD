@@ -1,43 +1,73 @@
 package dao;
 
-import model.cliente;
 import java.sql.*;
+import model.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.time.LocalDate;
 
 public class ClienteDAO {
-    // basicamente conecto com meu banco de dados e falo pra ele o que estou "fazendo"
-    
-        // Método para inserir um cliente
-    public void criar(cliente cliente) {
-        String sql = "INSERT INTO usuarios (id,nome,cpf, email, dataNascimento ) VALUES (?, ?)"; //como vai ser digitado
-        try (Connection conn = Conexao.conectar();
-                 PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-    
-                stmt.setInt(1, cliente.getid());
-                stmt.setString(2, cliente.getnome());
-                stmt.setString(3, cliente.getcpf());
-                stmt.setString(4, cliente.getEmail());
-                //stmt.setLocalDate(5, cliente.getdataNascimento()); Aprender a conversão.... Socorro
-                stmt.executeUpdate();
-    
-                // Recupera o ID gerado 
-                // Entender melhor como funciona 
 
-                ResultSet rs = stmt.getGeneratedKeys();
-                if (rs.next()) {
-                    cliente.setid(rs.getInt(1));
-                }
-    
-            } catch (SQLException e) {
-                throw new RuntimeException("Erro ao inserir usuário", e);
-            }
+    // Criar (Inserir um cliente)
+    public void inserirCliente(cliente cliente) {
+        String sql = "INSERT INTO cliente (cpf, nome, email, dataNascimento) VALUES (?, ?, ?, ?)";
+        try (Connection conexao = Conexao.conectar();
+             PreparedStatement stmt = conexao.prepareStatement(sql)) {
+            stmt.setString(1, cliente.getCpf());
+            stmt.setString(2, cliente.getNome());
+            stmt.setString(3, cliente.getEmail());
+            stmt.setDate(4, Date.valueOf(cliente.getDataNascimento())); // Conversão de LocalDate
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+    }
 
-    // Coisas que faltam ser realizadas 
-        //---- Método para listar todos os usuários
-        //---- Método para excluir um usuário pelo ID
-        //---- Método para buscar um usuário
+    // Ler (Selecionar todos os clientes)
+    public List<cliente> listarClientes() {
+        String sql = "SELECT * FROM cliente";
+        List<cliente> clientes = new ArrayList<>();
+        try (Connection conexao = Conexao.conectar();
+             Statement stmt = conexao.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                cliente cliente = new cliente(
+                        rs.getString("cpf"),
+                        rs.getString("nome"),
+                        rs.getString("email"),
+                        rs.getDate("dataNascimento").toLocalDate()
+                );
+                clientes.add(cliente);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return clientes;
+    }
 
+    // Atualizar (Atualizar informações de um cliente)
+    public void atualizarCliente(cliente cliente) {
+        String sql = "UPDATE cliente SET nome = ?, email = ?, dataNascimento = ? WHERE cpf = ?";
+        try (Connection conexao = Conexao.conectar();
+             PreparedStatement stmt = conexao.prepareStatement(sql)) {
+            stmt.setString(1, cliente.getNome());
+            stmt.setString(2, cliente.getEmail());
+            stmt.setDate(3, Date.valueOf(cliente.getDataNascimento())); // Conversão correta
+            stmt.setString(4, cliente.getCpf());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Deletar (Deletar um cliente)
+    public void deletarCliente(String cpf) {
+        String sql = "DELETE FROM cliente WHERE cpf = ?";
+        try (Connection conexao = Conexao.conectar();
+             PreparedStatement stmt = conexao.prepareStatement(sql)) {
+            stmt.setString(1, cpf);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
