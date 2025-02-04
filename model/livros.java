@@ -16,8 +16,10 @@ public class livros {
     
 
     
-    public livros(String nome, String nomeAutor,int fornecedores,int editora, String nomeEditora, double valor,int quantidade, String descricao, 
-    LocalDate dataCadastro) {
+    public livros( String nome, String nomeAutor, String nomeEditora, double valor,int quantidade, String descricao, 
+    LocalDate dataCadastro, int fornecedores, int editora) {
+
+    
         this.nome = nome;
         this.nomeAutor = nomeAutor;
         this.nomeEditora = nomeEditora;
@@ -29,11 +31,19 @@ public class livros {
         this.editora= editora;
 
     }
+    public livros (int id){
+        this.id = id;
+    }
+    
 
 // criar os Getters e os  Setters
 //Getters = - retornam os dados 
 // Setters = - colocam os dados
  
+    public livros(int int1, String string, String string2, String string3, double double1, int int2,
+            LocalDate localDate, int int3, int int4) {
+        //TODO Auto-generated constructor stub
+    }
     //retorno do id
     public int getid()
     {
