@@ -1,17 +1,19 @@
 package model;
 
 public class itemVenda {
-    private int livroId;
+    private int id;
     private int vendaId;
+    private int livroId;
     private int quantidadeItem;
-    private double valorItem;
+
 
     // Construtor
-    public itemVenda(int livroId, int vendaId, int quantidadeItem, double valorItem) {
+    public itemVenda(int id, int livroId, int vendaId, int quantidadeItem) {
+        this.id=id;
         this.livroId = livroId;
         this.vendaId = vendaId;
         this.quantidadeItem = quantidadeItem;
-        this.valorItem = valorItem;
+
     }
 
     // Getters e Setters
@@ -21,6 +23,13 @@ public class itemVenda {
 
     public void setLivroId(int livroId) {
         this.livroId = livroId;
+    }
+    public int getId() {
+        return livroId;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getVendaId() {
@@ -39,12 +48,5 @@ public class itemVenda {
         this.quantidadeItem = quantidadeItem;
     }
 
-    public double getValorItem() {
-        return valorItem;
-    }
-
-    public void setValorItem(double valorItem) {
-        this.valorItem = valorItem;
-    }
 
 }

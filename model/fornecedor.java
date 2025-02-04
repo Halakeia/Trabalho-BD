@@ -1,6 +1,6 @@
 package model;
 
-public class fornecedores {
+public class fornecedor {
     
     private int id;
     private String razaoSocial;
@@ -8,7 +8,7 @@ public class fornecedores {
     private String cnpj;
    
     //Construtor
-    public fornecedores (int id,  String razaoSocial, String nomeFantasia, String cnpj) 
+    public fornecedor (int id,  String razaoSocial, String nomeFantasia, String cnpj) 
     {
         this.id = id;
         this.razaoSocial = razaoSocial;
