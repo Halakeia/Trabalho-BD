@@ -1,10 +1,7 @@
+import static view.Login.login;
 
-import dao.*;
-import model.*;
-
-
-@SuppressWarnings("unused")
 public class Main {
     public static void main(String[] args) {
+    login();
     }
 }
