@@ -3,61 +3,55 @@ package model;
 public class usuario {
 
     private int id;
+    private int funcionarioId;
     private String userName;
-    private int senha;
+    private String senha;
 
-
-    public usuario (int id,  String userName, int senha) 
-    {
+    public usuario(int id, int funcionarioId, String userName, String senha) {
         this.id = id;
+        this.funcionarioId = funcionarioId;
         this.userName = userName;
-        this.senha= senha;
-        
+        this.senha = senha;
+
     }
 
-    public usuario (String userName, int senha) 
-    {
-      
-        this.userName = userName;
-        this.senha= senha;
-        
-    }
-    // criar os Getters e os  Setters
-    //Getters = - retornam os dados 
-    // Setters = - colocam os dados
-  
-    //retorno do id
-    public int getid()
-    {
-    return id;
+    // retorno do id
+    public int getid() {
+        return id;
     }
 
-    //inserção do id
-    public void setid(int id) 
-    {
+    // inserção do id
+    public void setid(int id) {
         this.id = id;
     }
 
-    //retorno do nome
+    // retorno do nome
     public String getuserName() {
         return userName;
     }
-    //inserção do nome
+
+    // inserção do nome
     public void setuserName(String userName) {
         this.userName = userName;
 
     }
 
-    //retorno da senha
-    public int getsenha()
-    {
-    return senha;
+    // retorno da senha
+    public String getsenha() {
+        return senha;
     }
 
-    //inserção da senha 
-    public void setsenha(int senha) 
-    {
-        this.senha= senha ;
+    // inserção da senha
+    public void setsenha(String id) {
+        this.senha = id;
     }
 
+    public int getFuncionarioId() {
+        return this.funcionarioId;
+    }
+
+    // inserção da senha
+    public void setFuncionarioId(int id) {
+        this.funcionarioId = id;
+    }
 }

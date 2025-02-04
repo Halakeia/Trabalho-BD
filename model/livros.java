@@ -42,7 +42,6 @@ public class livros {
  
     public livros(int int1, String string, String string2, String string3, double double1, int int2,
             LocalDate localDate, int int3, int int4) {
-        //TODO Auto-generated constructor stub
     }
     //retorno do id
     public int getid()
