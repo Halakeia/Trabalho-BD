@@ -38,16 +38,16 @@ public class testeCliente {
                 System.out.println(c.getCpf() + " - " + c.getNome() + " - " + c.getEmail() + " - " + c.getDataNascimento());
             }
 
-            // 5️ Deletar cliente
-            ClienteDAO.deletarCliente("12345678900");
-            System.out.println("✅ cliente deletado com sucesso!");
+            // // 5️ Deletar cliente
+            // ClienteDAO.deletarCliente("12345678900");
+            // System.out.println("✅ cliente deletado com sucesso!");
 
-            // 6️ Listar novamente para verificar remoção
-            clientes = ClienteDAO.listarClientes();
-            System.out.println("📋 Lista de clientes após deleção:");
-            for (cliente c : clientes) {
-                System.out.println(c.getCpf() + " - " + c.getNome() + " - " + c.getEmail() + " - " + c.getDataNascimento());
-            }
+            // // 6️ Listar novamente para verificar remoção
+            // clientes = ClienteDAO.listarClientes();
+            // System.out.println("📋 Lista de clientes após deleção:");
+            // for (cliente c : clientes) {
+            //     System.out.println(c.getCpf() + " - " + c.getNome() + " - " + c.getEmail() + " - " + c.getDataNascimento());
+            // }
 
     }
 }
