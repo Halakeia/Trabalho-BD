@@ -24,6 +24,15 @@ public class cliente {
         this.dataNascimento = dataNascimento;
     }
 
+    public String toString() {
+        return "Cliente{" +
+                "nome='" + nome + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", email='" + email + '\'' +
+                ", dataNascimento=" + dataNascimento +
+                '}';
+    }
+
     // retorno do id
     public int getId() {
         return id;

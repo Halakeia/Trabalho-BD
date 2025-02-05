@@ -23,8 +23,8 @@ public class LivrosDAO {
                 stmt.setInt(5, livros.getquantidade());
                 stmt.setDate(6, Date.valueOf(livros.getdataCadastro()));
                 stmt.setString(7, livros.getdescricao());
-                stmt.setInt(8, livros.getfornecedores()); // identifica o id de fornecedores
-                stmt.setInt(9, livros.geteditora()); //identifica o id da editora
+                stmt.setInt(8, livros.getfornecedorID()); // identifica o id de fornecedores
+                stmt.setInt(9, livros.geteditoraId()); //identifica o id da editora
 
 
 
@@ -93,8 +93,8 @@ public class LivrosDAO {
                 stmt.setInt(5, livros.getquantidade());
                 stmt.setDate(6, Date.valueOf(livros.getdataCadastro()));
                 stmt.setString(7, livros.getdescricao());
-                stmt.setInt(8, livros.getfornecedores()); // identifica o id de fornecedores
-                stmt.setInt(9, livros.geteditora());
+                stmt.setInt(8, livros.getfornecedorID()); // identifica o id de fornecedores
+                stmt.setInt(9, livros.geteditoraId());
                 stmt.setInt(10, livros.getid()); 
                 stmt.executeUpdate();
             System.out.println("Livro atualizado com sucesso!");
@@ -119,5 +119,31 @@ public class LivrosDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public livros buscarLivros(int id) {
+        String sql = "SELECT * FROM livro WHERE id = ?";
+        try (Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = conexao.prepareStatement(sql)) {
+            // Busca na tabela de clientes
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                // Se o cliente existir, cria o objeto Cliente
+                livros livros = new livros(
+                        rs.getInt("id"),
+                        rs.getInt("fornecedor_id"),
+                        rs.getInt("editora_id"),
+                        rs.getString("nome"),
+                        rs.getInt("quantidade"),
+                        rs.getDate("dataCadastro").toLocalDate()
+                );
+                return livros;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

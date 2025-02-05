@@ -16,6 +16,13 @@ public class funcionario {
         this.salario = salario;
     }
 
+    public funcionario(int idCargo, String cpf, String nome, double salario) {
+        this.idCargo = idCargo;
+        this.cpf = cpf;
+        this.nome = nome;
+        this.salario = salario;
+    }
+
     public int getId() {
         return this.id;
     }

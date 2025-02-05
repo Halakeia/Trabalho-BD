@@ -2,15 +2,21 @@ package view;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import dao.ClienteDAO;
+import dao.LivrosDAO;
 import model.cliente;
+import model.editora;
+import model.fornecedor;
 
 public class OpcoesCadastro {
-    ClienteDAO clienteDAO = new ClienteDAO();
     Scanner scanner = new Scanner(System.in);
+
     public void cadastroCliente(int usuarioID) {
+        ClienteDAO clienteDAO = new ClienteDAO();
         int opcao;
         do {
             System.out.println("\n-----------------------------\n");
@@ -19,7 +25,8 @@ public class OpcoesCadastro {
             System.out.println("2 - Buscar");
             System.out.println("3 - Editar");
             System.out.println("4 - Excluir");
-            System.out.println("5 - Voltar");
+            System.out.println("5 - Listar Todos");
+            System.out.println("6 - Voltar");
             System.out.print("Escolha uma opção: ");
             opcao = scanner.nextInt();
 
@@ -119,6 +126,14 @@ public class OpcoesCadastro {
                 break; 
 
                 case 5:
+                    List<cliente> listCliente = new ArrayList<>();
+                    listCliente = clienteDAO.listarClientes();
+                    System.out.print("\n-----------------------\n");
+                    System.out.println("Listar Todos:");
+                    listCliente.forEach(System.out::println);
+                break;
+
+                case 6:
                 System.out.println("Voltando...");
                 break;
         
@@ -126,6 +141,10 @@ public class OpcoesCadastro {
                 System.out.print("opcao invalida!\n");
                 break;
             } 
-        } while(opcao != 5);
+        } while(opcao != 6);
     }
+
+    
+
+
 }

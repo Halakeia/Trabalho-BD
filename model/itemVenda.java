@@ -15,6 +15,13 @@ public class itemVenda {
         this.quantidadeItem = quantidadeItem;
 
     }
+    
+    public itemVenda(int livroId, int vendaId, int quantidadeItem) {
+        this.livroId = livroId;
+        this.vendaId = vendaId;
+        this.quantidadeItem = quantidadeItem;
+
+    }
 
     // Getters e Setters
     public int getLivroId() {

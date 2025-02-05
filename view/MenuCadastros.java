@@ -1,9 +1,6 @@
 package view;
 
 import dao.*;
-import model.*;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 
@@ -16,37 +13,28 @@ public class MenuCadastros {
         int opcao;
         do {
             System.out.println("\n-----------------------------\n");
-            System.out.println("Selecione o tipo de cadastro: ");
-            System.out.println("1 - Usuário");
-            System.out.println("2 - Cliente");
-            System.out.println("3 - Livro");
-            System.out.println("4 - Voltar");
+            System.out.println("Menu Cadastro: ");
+            System.out.println("1 - Cliente");
+            System.out.println("2 - Voltar");
             System.out.print("Opção: ");
 
             opcao = scanner.nextInt();
             
             switch (opcao) {
                 case 1:
-                    //cadastro de usuário
-                break;
-
-                case 2:
                 opcoes.cadastroCliente(usuarioID);
                 break;
-
-                case 3:
-                    //cadastro de livro
-                break;
                 
-                case 4:
+                case 2:
                     System.out.println("Retornando...");
                 break;
-            
+                    
                 default:
+                    System.out.println("Opção Inválida...");
                     break;
             }
 
-        } while (opcao != 4);
+        } while (opcao != 2);
     }
 
     

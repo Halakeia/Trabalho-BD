@@ -7,6 +7,13 @@ public class venda {
     private LocalDate dataHora;
     private int idCliente;
     private int idFuncionario;
+    
+
+
+    public venda (int idClient, int idFuncionario){
+        this.idCliente = idClient;
+        this.idFuncionario = idFuncionario;
+    }
 
     public int getId() {
         return this.id;

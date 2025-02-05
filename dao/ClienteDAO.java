@@ -34,8 +34,8 @@ public class ClienteDAO {
              ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
                 cliente cliente = new cliente(
+                        rs.getString("nome"),        
                         rs.getString("cpf"),
-                        rs.getString("nome"),
                         rs.getString("email"),
                         rs.getDate("dataNascimento").toLocalDate()
                 );
@@ -80,7 +80,7 @@ public class ClienteDAO {
         }
     }
 
-
+    //função para buscar um cliente pelo CPF
     public cliente buscarCliente(String cpf) {
         String sql = "SELECT * FROM cliente WHERE cpf = ?";
         try (Connection conexao = Conexao.conectar();
@@ -104,6 +104,33 @@ public class ClienteDAO {
             e.printStackTrace();
         }
         return null;
+    }
+
+
+    //função para buscar um cliente pelo CPF que retorna o ID
+    public int buscarClienteId(String nome) {
+        String sql = "SELECT * FROM cliente WHERE nome = ?";
+        try (Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = conexao.prepareStatement(sql)) {
+            // Busca na tabela de clientes
+            stmt.setString(1, nome);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                // Se o cliente existir, cria o objeto Cliente
+                cliente cliente = new cliente(
+                        rs.getInt("id"),
+                        rs.getString("nome"),
+                        rs.getString("cpf"),
+                        rs.getString("email"),
+                        rs.getDate("dataNascimento").toLocalDate()
+                );
+                return cliente.getId();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
     }
 
 }

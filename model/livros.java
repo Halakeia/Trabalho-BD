@@ -11,15 +11,13 @@ public class livros {
     private int quantidade;
     private String descricao;
     private LocalDate dataCadastro;
-    private int fornecedores;
-    private int editora; //Representa o relacionamento com a tabela fornecedores
+    private int fornecedor_id;
+    private int editora_id; //Representa o relacionamento com a tabela fornecedores
     
 
     
     public livros(String nome, String nomeAutor, String nomeEditora, double valor,int quantidade, String descricao, 
-    LocalDate dataCadastro, int fornecedores, int editora) {
-
-    
+    LocalDate dataCadastro, int fornecedor_id, int editora_id) {
         this.nome = nome;
         this.nomeAutor = nomeAutor;
         this.nomeEditora = nomeEditora;
@@ -27,12 +25,20 @@ public class livros {
         this.quantidade = quantidade;
         this.descricao= descricao;
         this.dataCadastro = dataCadastro;
-        this.fornecedores = fornecedores;
-        this.editora= editora;
-
+        this.fornecedor_id = fornecedor_id;
+        this.editora_id= editora_id;
     }
-    public livros (int id){
+    public livros (int id, int fornecedor_id, int editora_id, String nome, int quantidade, LocalDate dataCadastro){
         this.id = id;
+        this.fornecedor_id = fornecedor_id;
+        this.editora_id = editora_id;
+        this.nome = nome;
+        this.quantidade = quantidade;
+        this.dataCadastro = dataCadastro;
+    }
+
+    public livros(){
+        
     }
     
 
@@ -121,12 +127,12 @@ public class livros {
     }
 
     //retorno da fk do fornecedor 
-    public int getfornecedores(){
-        return fornecedores;
+    public int getfornecedorID(){
+        return fornecedor_id;
     }
     //retorno da fk do fornecedor 
-    public void setfornecedores(int fornecedores){
-        this.fornecedores= fornecedores;
+    public void setfornecedorID(int fornecedor_id){
+        this.fornecedor_id= fornecedor_id;
 
     }   
 
@@ -143,12 +149,12 @@ public class livros {
         
     }
 
-    public int geteditora  (){
-        return editora;
+    public int geteditoraId (){
+        return editora_id;
 
     }
-    public void seteditora(int editora ){
-        this.editora= editora;
+    public void seteditora(int editora_id){
+        this.editora_id= editora_id;
     }
 
 }
