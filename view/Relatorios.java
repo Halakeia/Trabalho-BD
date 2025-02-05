@@ -112,7 +112,7 @@ public class Relatorios {
                 }
                 break;
             default:
-                System.out.println("Opção inválida. Por favor, escolha um número de 1 a 12.");
+                System.out.println("Opção inválida. Por favor, escolha uma consulta válida.");
         }
 
     
