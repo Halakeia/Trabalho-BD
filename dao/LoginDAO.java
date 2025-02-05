@@ -26,8 +26,9 @@ public class LoginDAO {
             if (rs.next()) {
                 return new usuario(
                         rs.getInt("id"),
+                        rs.getInt("funcionario_id"),
                         rs.getString("userName"),
-                        rs.getInt("senha")
+                        rs.getString("senha")
                 );
             }
 

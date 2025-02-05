@@ -15,6 +15,12 @@ public class usuario {
 
     }
 
+    public usuario(int funcionarioId, String userName, String senha) {
+        this.funcionarioId = funcionarioId;
+        this.userName = userName;
+        this.senha = senha;
+    }
+
     // retorno do id
     public int getid() {
         return id;

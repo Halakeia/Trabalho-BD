@@ -16,7 +16,7 @@ public class livros {
     
 
     
-    public livros( String nome, String nomeAutor, String nomeEditora, double valor,int quantidade, String descricao, 
+    public livros(String nome, String nomeAutor, String nomeEditora, double valor,int quantidade, String descricao, 
     LocalDate dataCadastro, int fornecedores, int editora) {
 
     
