@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class MenuCadastros {
     Scanner scanner = new Scanner(System.in);
     ClienteDAO cliente = new ClienteDAO();
-    public void menuCadastros() {
+    public void menuCadastros(int usuarioID) {
         int opcao;
         do {
             System.out.println("\n-----------------------------\n");
@@ -30,7 +30,7 @@ public class MenuCadastros {
                 case 2:
                 System.out.println("\n-----------------------------\n");
                 System.out.println("Clientes: ");
-                opcoesCliente();
+                opcoesCliente(usuarioID);
                 break;
 
                 case 3:
@@ -48,7 +48,7 @@ public class MenuCadastros {
         } while (opcao != 4);
     }
 
-    public void opcoesCliente() {
+    public void opcoesCliente(int usuarioID) {
         int opcao;
         do {
             System.out.println("1 - Inserir");
@@ -62,7 +62,7 @@ public class MenuCadastros {
             switch (opcao) {
                 case 1:
                     //inserir dados
-                    /*
+                    
                     scanner.nextLine();
                     System.out.print("\n-----------------------\n");
                     System.out.print("Dados do cliente:\n");
@@ -78,8 +78,11 @@ public class MenuCadastros {
                     LocalDate data = LocalDate.parse(dataStr, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
                     cliente novoCliente = new cliente(nome, cpf, email, data);
-                    cliente.criar(novoCliente);
-                    */
+                    cliente.inserirCliente(novoCliente);
+
+                    //exemplo
+
+                    
                 break;
 
                 case 2:
