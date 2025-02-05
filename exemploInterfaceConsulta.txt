@@ -1,0 +1,78 @@
+  // Criando uma instância do DAO de Consultas
+            Consultas consultas = new Consultas();
+
+            // ------------------- Teste das Consultas -------------------
+
+            // Testando as Consultas com Junção
+            System.out.println("1. Livros e seus Autores:");
+            List<String> livrosEAutores = consultas.getLivrosEAutores();
+            for (String livro : livrosEAutores) {
+                System.out.println(livro);
+            }
+
+            System.out.println("\n2. Funcionários e Vendas:");
+            List<String> funcionariosEVendas = consultas.getFuncionariosEVendas();
+            for (String funcionario : funcionariosEVendas) {
+                System.out.println(funcionario);
+            }
+
+            System.out.println("\n3. Clientes e Itens Comprados:");
+            List<String> clientesEItens = consultas.getClientesEItensComprados();
+            for (String cliente : clientesEItens) {
+                System.out.println(cliente);
+            }
+
+            // Testando as Consultas com GROUP BY e Funções Agregadas
+            System.out.println("\n4. Total de Livros Vendidos por Livro:");
+            List<String> totalLivrosVendidos = consultas.getTotalLivrosVendidosPorLivro();
+            for (String livro : totalLivrosVendidos) {
+                System.out.println(livro);
+            }
+
+            System.out.println("\n5. Funcionários que venderam mais de 5 itens:");
+            List<String> funcionariosComMaisDeCincoItens = consultas.getVendasPorFuncionarioComMaisDeCincoItens();
+            for (String funcionario : funcionariosComMaisDeCincoItens) {
+                System.out.println(funcionario);
+            }
+
+            System.out.println("\n6. Total Gasto por Cliente:");
+            List<String> totalGastoPorCliente = consultas.getTotalGastoPorCliente();
+            for (String gasto : totalGastoPorCliente) {
+                System.out.println(gasto);
+            }
+
+            // Testando as Consultas com Funções de Data
+            System.out.println("\n7. Vendas no Último Mês:");
+            List<String> vendasUltimoMes = consultas.getVendasUltimoMes();
+            for (String venda : vendasUltimoMes) {
+                System.out.println(venda);
+            }
+
+            System.out.println("\n8. Livros Cadastrados no Último Ano:");
+            List<String> livrosCadastradosUltimoAno = consultas.getLivrosCadastradosUltimoAno();
+            for (String livro : livrosCadastradosUltimoAno) {
+                System.out.println(livro);
+            }
+
+            System.out.println("\n9. Vendas de Hoje:");
+            List<String> vendasHoje = consultas.getVendasHoje();
+            for (String venda : vendasHoje) {
+                System.out.println(venda);
+            }
+
+            // Testando as Consultas Aninhadas
+            System.out.println("\n10. Cliente que Gastou Mais:");
+            String clienteQueGastouMais = consultas.getClienteQueGastouMais();
+            System.out.println(clienteQueGastouMais);
+
+            System.out.println("\n11. Livros com Quantidade Inferior à Média:");
+            List<String> livrosComQuantidadeInferiorAMedia = consultas.getLivrosComQuantidadeInferiorAMedia();
+            for (String livro : livrosComQuantidadeInferiorAMedia) {
+                System.out.println(livro);
+            }
+
+            System.out.println("\n12. Funcionários Sem Vendas:");
+            List<String> funcionariosSemVendas = consultas.getFuncionariosSemVendas();
+            for (String funcionario : funcionariosSemVendas) {
+                System.out.println(funcionario);
+            }
