@@ -115,6 +115,6 @@ public class Relatorios {
                 System.out.println("Opção inválida. Por favor, escolha um número de 1 a 12.");
         }
 
-        scanner.close();
+    
     }
 }
