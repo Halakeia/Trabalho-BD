@@ -32,30 +32,18 @@ INSERT INTO `bookflow`.`cliente` (`nome`, `cpf`, `email`, `dataNascimento`) VALU
 -- Inserindo dados na tabela `bookflow`.`editora`
 -- -----------------------------------------------------
 INSERT INTO `bookflow`.`editora` (`cnpj`, `nome`) VALUES
-('12.345.678/0001-90', 'Editora Globo'),
-('23.456.789/0001-20', 'Editora Record'),
-('34.567.890/0001-30', 'Editora Companhia das Letras'),
-('45.678.901/0001-40', 'Editora Rocco'),
-('56.789.012/0001-50', 'Editora Intrínseca'),
-('67.890.123/0001-60', 'Editora Saraiva'),
-('78.901.234/0001-70', 'Editora Arqueiro'),
-('89.012.345/0001-80', 'Editora Planeta'),
-('90.123.456/0001-90', 'Editora Sextante'),
-('01.234.567/0001-00', 'Editora Pensamento');
+('12345678000190', 'Editora Globo'),
+('23456789000120', 'Editora Record'),
+('34567890000130', 'Editora Companhia das Letras'),
+('45678901000140', 'Editora Rocco'),
+('56789012000150', 'Editora Intrínseca'),
+('67890123000160', 'Editora Saraiva'),
+('78901234000170', 'Editora Arqueiro'),
+('89012345000180', 'Editora Planeta'),
+('90123456000190', 'Editora Sextante'),
+('01234567000100', 'Editora Pensamento');
 
- -- Inserindo dados na tabela `bookflow`.`livro`
-INSERT INTO `bookflow`.`livro` (`fornecedor_id`, `editora_id`, `nome`, `quantidade`, `dataCadastro`, `descricao`) VALUES
-(5, 1, 'Harry Potter e a Pedra Filosofal', 10, NOW(), 'A história do jovem bruxo Harry Potter'),
-(6, 2, 'O Game of Thrones', 5, NOW(), 'Primeiro livro da série As Crônicas de Gelo e Fogo'),
-(7, 3, 'O Senhor dos Anéis', 8, NOW(), 'Uma jornada épica pela Terra Média'),
-(8, 4, 'Assassinato no Expresso do Oriente', 12, NOW(), 'Um clássico do suspense de Agatha Christie'),
-(9, 5, 'O Código Da Vinci', 9, NOW(), 'Romance de mistério de Dan Brown'),
-(10, 6, 'It: A Coisa', 15, NOW(), 'Horror psicológico escrito por Stephen King'),
-(11, 7, 'Fundação', 7, NOW(), 'Primeiro livro da série Fundação de Isaac Asimov'),
-(12, 8, '2001: Uma Odisseia no Espaço', 6, NOW(), 'Ficção científica de Arthur C. Clarke'),
-(13, 9, 'O Chamado de Cthulhu', 11, NOW(), 'Histórias de terror cósmico de H.P. Lovecraft'),
-(14, 10, 'As Aventuras de Tom Sawyer', 13, NOW(), 'Clássico literário de Mark Twain');
-
+-- Inserindo dados na Tabela bokflow.forncedor
  INSERT INTO `bookflow`.`fornecedor` (`razaoSocial`, `nomeFantasia`, `cnpj`) VALUES
 ('Fornecedor A S.A.', 'FornA', '01234567000110'),
 ('Fornecedor B LTDA', 'FornB', '12345678000120'),
@@ -67,6 +55,20 @@ INSERT INTO `bookflow`.`livro` (`fornecedor_id`, `editora_id`, `nome`, `quantida
 ('Fornecedor H LTDA', 'FornH', '78901234000180'),
 ('Fornecedor I S.A.', 'FornI', '89012345000190'),
 ('Fornecedor J LTDA', 'FornJ', '90123456000100');
+
+ -- Inserindo dados na tabela `bookflow`.`livro`
+INSERT INTO `bookflow`.`livro` (`fornecedor_id`, `editora_id`, `nome`, `quantidade`, `dataCadastro`, `descricao`) VALUES
+(1, 1, 'Harry Potter e a Pedra Filosofal', 10, NOW(), 'A história do jovem bruxo Harry Potter'),
+(2, 2, 'O Game of Thrones', 5, NOW(), 'Primeiro livro da série As Crônicas de Gelo e Fogo'),
+(3, 3, 'O Senhor dos Anéis', 8, NOW(), 'Uma jornada épica pela Terra Média'),
+(4, 4, 'Assassinato no Expresso do Oriente', 12, NOW(), 'Um clássico do suspense de Agatha Christie'),
+(5, 5, 'O Código Da Vinci', 9, NOW(), 'Romance de mistério de Dan Brown'),
+(6, 6, 'It: A Coisa', 15, NOW(), 'Horror psicológico escrito por Stephen King'),
+(7, 7, 'Fundação', 7, NOW(), 'Primeiro livro da série Fundação de Isaac Asimov'),
+(8, 8, '2001: Uma Odisseia no Espaço', 6, NOW(), 'Ficção científica de Arthur C. Clarke'),
+(9, 9, 'O Chamado de Cthulhu', 11, NOW(), 'Histórias de terror cósmico de H.P. Lovecraft'),
+(10, 10, 'As Aventuras de Tom Sawyer', 13, NOW(), 'Clássico literário de Mark Twain');
+
  ---------------------------------
 -- Inserindo dados na tabela `bookflow`.`Cargo`
 -- -----------------------------------------------------
@@ -86,7 +88,7 @@ INSERT INTO `bookflow`.`Cargo` (`nomeCargo`, `descricao`) VALUES
 -- Inserindo dados na tabela `bookflow`.`funcionario`
 -- -----------------------------------------------------
 INSERT INTO `bookflow`.`funcionario` (`Cargo_id`, `nome`, `salario`, `cpf`) VALUES
-(1, 'Pedro Henrique', 3500.00, '12345678901'),
+(1, 'Pedro Henrique', 3500.00, '56487952354'),
 (2, 'Maria Clara', 1500.00, '23456789012'),
 (3, 'João Vitor', 2000.00, '34567890123'),
 (4, 'Amanda Oliveira', 1800.00, '45678901234'),
@@ -101,47 +103,47 @@ INSERT INTO `bookflow`.`funcionario` (`Cargo_id`, `nome`, `salario`, `cpf`) VALU
 -- Inserindo dados na tabela `bookflow`.`venda`
 -- -----------------------------------------------------
 INSERT INTO `bookflow`.`venda` (`dataHora`, `cliente_id`, `funcionario_id`) VALUES
-(NOW(), 13, 1),
-(NOW(), 14, 2),
-(NOW(), 15, 3),
-(NOW(), 16, 4),
-(NOW(), 17, 5),
-(NOW(), 18, 6),
-(NOW(), 19, 7),
-(NOW(), 20, 8),
-(NOW(), 21, 9),
-(NOW(), 22, 10);
+(NOW(), 1, 1),
+(NOW(), 2, 2),
+(NOW(), 3, 3),
+(NOW(), 4, 4),
+(NOW(), 5, 5),
+(NOW(), 6, 6),
+(NOW(), 7, 7),
+(NOW(), 8, 8),
+(NOW(), 9, 9),
+(NOW(), 10, 10);
 
  
 -- ----------------------------------------------------
 -- Inserindo dados na tabela `bookflow`.`item_venda`
 -- -----------------------------------------------------
 INSERT INTO `bookflow`.`item_venda` (`livro_id`, `venda_id`, `quantidadeItem`) VALUES
-(31, 11, 2),
-(32, 12, 1),
-(33, 13, 3),
-(34, 14, 1),
-(35, 15, 2),
-(36, 16, 1),
-(37, 17, 4),
-(38, 18, 1),
-(39, 19, 3),
-(40, 20, 2);
+(1, 1, 2),
+(2, 2, 1),
+(3, 3, 3),
+(4, 4, 1),
+(5, 5, 2),
+(6, 6, 1),
+(7, 7, 4),
+(8, 8, 1),
+(9, 9, 3),
+(10, 10, 2);
 
 -- -----------------------------------------------------
 -- Inserindo dados na tabela `bookflow`.`livro_autor`
 -- -----------------------------------------------------
 INSERT INTO `bookflow`.`livro_autor` (`livro_id`, `autor_id`) VALUES
-(31, 1),
-(32, 2),
-(33, 3),
-(34, 4),
-(35, 5),
-(36, 6),
-(37, 7),
-(38, 8),
-(39, 9),
-(40, 10);
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10);
 
 -- -----------------------------------------------------
 -- Inserindo dados na tabela `bookflow`.`usuario`
@@ -175,13 +177,13 @@ INSERT INTO `bookflow`.`logs` (`idlogs`, `usuario_id`, `tabela`, `acao`, `dadosA
 -- Inserindo dados na tabela `bookflow`.`preco_livro`
 -- -----------------------------------------------------
 INSERT INTO `bookflow`.`preco_livro` (`idpreço`, `livro_id`, `valor`, `data`) VALUES
-(1, 31, 39.90, NOW()),
-(2, 32, 49.90, NOW()),
-(3, 33, 79.90, NOW()),
-(4, 34, 29.90, NOW()),
-(5, 35, 59.90, NOW()),
-(6, 36, 39.90, NOW()),
-(7, 37, 69.90, NOW()),
-(8, 38, 89.90, NOW()),
-(9, 39, 34.90, NOW()),
-(10, 40, 19.90, NOW());
+(1, 1, 39.90, NOW()),
+(2, 2, 49.90, NOW()),
+(3, 3, 79.90, NOW()),
+(4, 4, 29.90, NOW()),
+(5, 5, 59.90, NOW()),
+(6, 6, 39.90, NOW()),
+(7, 7, 69.90, NOW()),
+(8, 8, 89.90, NOW()),
+(9, 9, 34.90, NOW()),
+(10, 10, 19.90, NOW());
