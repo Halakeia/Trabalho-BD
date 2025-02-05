@@ -8,41 +8,46 @@ public class venda {
     private int idCliente;
     private int idFuncionario;
 
-    // retorno do id
-    public int getid() {
-        return id;
+    public int getId() {
+        return this.id;
     }
 
-    // inserção do id
-    public void setid(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    // retorno da data
-    public LocalDate getdata() {
-        return dataHora;
+    public LocalDate getDataHora() {
+        return this.dataHora;
     }
 
-    // inserção da data
-    public void setdata(LocalDate data) {
-        this.dataHora = data;
-    }
-
-    public void setIdCliente(int id) {
-        this.idCliente = id;
+    public void setDataHora(LocalDate dataHora) {
+        this.dataHora = dataHora;
     }
 
     public int getIdCliente() {
         return this.idCliente;
     }
 
-    public void setIdFuncionario(int id) {
-        this.idFuncionario = id;
-
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
     }
 
     public int getIdFuncionario() {
         return this.idFuncionario;
     }
+
+    public void setIdFuncionario(int idFuncionario) {
+        this.idFuncionario = idFuncionario;
+    }
+
+
+    public venda(int id, LocalDate dataHora, int idCliente, int idFuncionario) {
+        this.id = id;
+        this.dataHora = dataHora;
+        this.idCliente = idCliente;
+        this.idFuncionario = idFuncionario;
+    }
+
+   
 
 }
