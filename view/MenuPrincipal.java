@@ -11,7 +11,7 @@ public class MenuPrincipal {
     public static void menuSistema(int usuarioID) {
         Scanner scanner = new Scanner(System.in);
         boolean continuar = true;
-        MenuCadastros menu = new MenuCadastros();
+        MenuCadastros cadastros = new MenuCadastros();
         int opcao;
         while (continuar) {
             System.out.println("\n------------------------\n");
@@ -28,7 +28,7 @@ public class MenuPrincipal {
             switch (opcao) {
 
                 case 1:
-                    menu.menuCadastros(usuarioID);
+                    cadastros.menuCadastros(usuarioID);
                     break;
                 case 2:
                     // Chamar o método para realizar venda

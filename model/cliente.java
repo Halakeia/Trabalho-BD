@@ -9,6 +9,14 @@ public class cliente {
     private String email;
     private LocalDate dataNascimento;
 
+    public cliente(int id, String nome, String cpf, String email, LocalDate dataNascimento) {
+        this.id = id;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
+        this.dataNascimento = dataNascimento;
+    }
+
     public cliente(String nome, String cpf, String email, LocalDate dataNascimento) {
         this.nome = nome;
         this.cpf = cpf;

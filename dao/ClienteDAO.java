@@ -17,6 +17,9 @@ public class ClienteDAO {
             stmt.setString(3, cliente.getEmail());
             stmt.setDate(4, Date.valueOf(cliente.getDataNascimento())); // Conversão de LocalDate
             stmt.executeUpdate();
+
+            System.out.println("\nCliente inserido com sucesso!");
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -54,6 +57,9 @@ public class ClienteDAO {
             stmt.setDate(3, Date.valueOf(cliente.getDataNascimento())); // Conversão correta
             stmt.setString(4, cliente.getCpf());
             stmt.executeUpdate();
+
+            System.out.println("\nCliente atualizado com sucesso!");
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -66,8 +72,38 @@ public class ClienteDAO {
              PreparedStatement stmt = conexao.prepareStatement(sql)) {
             stmt.setString(1, cpf);
             stmt.executeUpdate();
+
+            System.out.println("\nCliente deletado com sucesso!");
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
+
+    public cliente buscarCliente(String cpf) {
+        String sql = "SELECT * FROM cliente WHERE cpf = ?";
+        try (Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = conexao.prepareStatement(sql)) {
+            // Busca na tabela de clientes
+            stmt.setString(1, cpf);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                // Se o cliente existir, cria o objeto Cliente
+                cliente cliente = new cliente(
+                        rs.getInt("id"),
+                        rs.getString("nome"),
+                        rs.getString("cpf"),
+                        rs.getString("email"),
+                        rs.getDate("dataNascimento").toLocalDate()
+                );
+                return cliente;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

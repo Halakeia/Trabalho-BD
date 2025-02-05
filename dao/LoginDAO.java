@@ -11,7 +11,7 @@ public class LoginDAO {
      * @param senha Senha do usuário
      * @return O usuário autenticado ou NULL se falhar
      */
-    public usuario autenticar(String userName, int senha) {
+    public usuario autenticar(String userName, String senha) {
         String sql = "SELECT * FROM usuario WHERE userName = ? AND senha = ?";
 
         try (
@@ -19,7 +19,7 @@ public class LoginDAO {
                 PreparedStatement stmt = conexao.prepareStatement(sql)
         ) {
             stmt.setString(1, userName);
-            stmt.setInt(2, senha);
+            stmt.setString(2, senha);
 
             ResultSet rs = stmt.executeQuery();
 

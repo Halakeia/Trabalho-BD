@@ -27,7 +27,7 @@ public class Login {
                     System.out.print("Informe seu Username: ");
                     String cpf = scanner.nextLine();
                     System.out.print("Informe sua senha: ");
-                    int senha = scanner.nextInt();
+                    String senha = scanner.nextLine();
 
                     // Verifica a autenticação no Banco de Dados com a senha criptografada
                     usuario usuario = loginDAO.autenticar(cpf, senha);
