@@ -67,7 +67,7 @@ public class OpcoesCadastro {
                     //Editar dados
                     scanner.nextLine();
                     System.out.print("\n-----------------------\n");
-                    System.out.println("Alterar:");
+                    System.out.println("Editar:");
                     System.out.print("Digite o cpf do cliente: ");
                     cpf = scanner.nextLine();
 
@@ -104,13 +104,15 @@ public class OpcoesCadastro {
                         break;
                     }
 
-                    System.out.print("\nDeseja excluir o cadastro de " + cliente.getNome() + "? (s - confirmar): ");
+                    System.out.print("\nDeseja excluir o cadastro de " + cliente.getNome() + "? (s/n): ");
                     String confirm = scanner.nextLine();
-                    System.out.println("Excluir:" + confirm);
                     if ((confirm.equals("s")) || (confirm.equals("S"))) {
                         clienteDAO.deletarCliente(cpf);
                         break;
-                    } 
+                    } else if ((confirm.equals("n")) || (confirm.equals("N"))) {
+                        System.out.println("Exclusão cancelada. Retornando...\n");
+                        break;
+                    }
 
                     System.out.println("\nOpção inválida!");
 
