@@ -2,12 +2,13 @@ package view;
 
 // No momento essa class será para testar os comandos do CRUD 
 
+import model.*;
 
 
 import java.util.Scanner;
 
 public class MenuPrincipal {
-    public static void menuSistema() {
+    public static void menuSistema(int usuarioID) {
         Scanner scanner = new Scanner(System.in);
         boolean continuar = true;
         MenuCadastros menu = new MenuCadastros();
@@ -27,7 +28,7 @@ public class MenuPrincipal {
             switch (opcao) {
 
                 case 1:
-                    menu.menuCadastros();
+                    menu.menuCadastros(usuarioID);
                     break;
                 case 2:
                     // Chamar o método para realizar venda

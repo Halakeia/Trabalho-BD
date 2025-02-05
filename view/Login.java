@@ -37,7 +37,8 @@ public class Login {
                         System.out.println("Login realizado com sucesso!");
                         System.out.println("Bem-vindo, " + usuario.getuserName());
 
-                        MenuPrincipal.menuSistema();
+
+                        MenuPrincipal.menuSistema(usuario.getid());
 
                     } else {
                         System.out.println("Username ou senha inválidos!\n");
