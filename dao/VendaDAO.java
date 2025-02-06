@@ -1,6 +1,8 @@
 package dao;
 
+import model.cliente;
 import model.venda;
+import model.funcionario;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -14,8 +16,14 @@ public class VendaDAO {
         
         try (Connection conexao = Conexao.conectar();
              PreparedStatement stmt = conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+
+                // Obtendo a data e hora atual
+            LocalDateTime now = LocalDateTime.now();
+
+            // Convertendo para Timestamp (formato 'yyyy-MM-dd HH:mm:ss')
+            Timestamp timestamp = Timestamp.valueOf(now);
             
-            stmt.setTimestamp(1, Timestamp.valueOf(venda.getDataHora().atStartOfDay())); // Convertendo LocalDate para Timestamp
+            stmt.setTimestamp(1,timestamp); // Convertendo LocalDate para Timestamp
             stmt.setInt(2, venda.getIdCliente());
             stmt.setInt(3, venda.getIdFuncionario());
             stmt.executeUpdate();
@@ -85,4 +93,31 @@ public class VendaDAO {
             e.printStackTrace();
         }
     }
+
+    //função para buscar um funcionario pelo CPF
+    public funcionario buscarfuncionario(String cpf) {
+        String sql = "SELECT * FROM funcionario WHERE cpf = ?";
+        try (Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = conexao.prepareStatement(sql)) {
+            // Busca na tabela de clientes
+            stmt.setString(1, cpf);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                // Se o cliente existir, cria o objeto Cliente
+                funcionario funcionario = new funcionario(
+                        rs.getInt("id"),
+                        rs.getInt("Cargo_id"),
+                        rs.getString("nome"),
+                        rs.getString("cpf"),
+                        rs.getDouble("salario")
+                );
+                return funcionario;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

@@ -9,7 +9,9 @@ public class MenuPrincipal {
         Scanner scanner = new Scanner(System.in);
         boolean continuar = true;
         MenuCadastros cadastros = new MenuCadastros();
+        VendaLivro venda = new VendaLivro();
         Relatorios relatorios = new Relatorios(); // Instanciando a classe de relatórios
+
         int opcao;
         while (continuar) {
             System.out.println("\n------------------------\n");
@@ -30,6 +32,7 @@ public class MenuPrincipal {
                     break;
                 case 2:
                     // Chamar o método para realizar venda
+                    venda.realizarVenda(usuarioID);
                     break;
                 case 3:
                     // Chamar o método de relatórios

@@ -1,9 +1,11 @@
 package model;
 
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class livro {
-     private int id;
+    private int id;
     private int fornecedorId;
     private int editoraId;
     private String nome;
@@ -20,6 +22,7 @@ public class livro {
         this.dataCadastro = dataCadastro;
         this.descricao = descricao;
     }
+
 
     public int getId() {
         return this.id;
@@ -76,6 +79,6 @@ public class livro {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    
+   
 
 }
