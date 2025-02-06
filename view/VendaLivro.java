@@ -34,11 +34,11 @@ public class VendaLivro {
         // Adicionar itens à venda
         List<itemVenda> itens = new ArrayList<>();
         while (true) {
-            System.out.print("Digite o nome do livro que o cliente escolheu (ou digite '0' para encerrar): ");
-            int codLivro = scanner.nextInt();
+            System.out.print("Digite o nome do livro que o cliente escolheu (ou digite 'finalizar' para encerrar): ");
+            String nomeLivro = scanner.nextLine();
             
             // Verifica se o usuário quer finalizar
-            if (codLivro == 0) {
+            if (nomeLivro.equalsIgnoreCase("finalizar")) {
                 break;
             }
 
@@ -48,7 +48,7 @@ public class VendaLivro {
 
             // Verificar se o livro existe
             
-            if ((livro = livrosDAO.buscarLivros(codLivro)) == null) {
+            if ((livro = livrosDAO.buscarLivros(nomeLivro)) == null) {
                 System.out.println("Livro não encontrado, tente novamente.");
                 continue;
             }

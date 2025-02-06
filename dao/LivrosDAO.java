@@ -121,12 +121,12 @@ public class LivrosDAO {
         }
     }
 
-    public livros buscarLivros(int id) {
+    public livros buscarLivros(String nome) {
         String sql = "SELECT * FROM livro WHERE id = ?";
         try (Connection conexao = Conexao.conectar();
             PreparedStatement stmt = conexao.prepareStatement(sql)) {
             // Busca na tabela de clientes
-            stmt.setInt(1, id);
+            stmt.setString(1, nome);
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
