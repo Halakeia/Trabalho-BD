@@ -11,7 +11,7 @@ import dao.*;
 public class VendaLivro {
     Scanner scanner = new Scanner(System.in);
     VendaDAO vendaDAO = new VendaDAO();
-    LivrosDAO livrosDAO = new LivrosDAO();
+    LivroDAO livrosDAO = new LivroDAO();
     itemVendaDAO itemVendaDAO = new itemVendaDAO();
     ClienteDAO clienteDAO = new ClienteDAO();
     // Método para adicionar uma venda e os itens de venda

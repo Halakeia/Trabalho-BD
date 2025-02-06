@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import dao.ClienteDAO;
-import dao.LivrosDAO;
+import dao.LivroDAO;
 import model.cliente;
 import model.editora;
 import model.fornecedor;

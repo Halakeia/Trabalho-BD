@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class LivrosDAO {
+public class LivroDAO {
     // Cria um novo fornecedor
     public void criar_Livro(livros livros) 
     {
