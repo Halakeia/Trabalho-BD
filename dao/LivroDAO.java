@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 public class LivroDAO {
     private Connection connection;
 
@@ -31,6 +32,7 @@ public class LivroDAO {
             e.printStackTrace();
         }
     }
+
 
 
     //Método para Ler todos os livros
@@ -60,6 +62,9 @@ public class LivroDAO {
     }
 
     //Metodo para atualizar os dados 
+
+    // Atualizar um livro existente
+
     public void atualizarLivro(livro livro) {
         String sql = "UPDATE livro SET fornecedor_id = ?, editora_id = ?, nome = ?, quantidade = ?, dataCadastro = ?, descricao = ? WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
@@ -77,7 +82,6 @@ public class LivroDAO {
         }
     }
 
-
     // Excluir um livro pelo ID
     public void excluirLivro(int id) {
         String sql = "DELETE FROM livro WHERE id = ?";
@@ -88,6 +92,7 @@ public class LivroDAO {
             e.printStackTrace();
         }
     }
+
 
     public livro buscarLivros(String nome) {
         String sql = "SELECT * FROM livro WHERE nome = ?";
@@ -115,4 +120,5 @@ public class LivroDAO {
         }
         return null;
     }
+
 }

@@ -1,16 +1,17 @@
-package view;
-
-// No momento essa class será para testar os comandos do CRUD 
+ package view;
 
 import model.*;
 import java.util.Scanner;
 
 public class MenuPrincipal {
+
     public static void menuSistema(int usuarioID) {
         Scanner scanner = new Scanner(System.in);
         boolean continuar = true;
         MenuCadastros cadastros = new MenuCadastros();
         VendaLivro venda = new VendaLivro();
+        Relatorios relatorios = new Relatorios(); // Instanciando a classe de relatórios
+
         int opcao;
         while (continuar) {
             System.out.println("\n------------------------\n");
@@ -34,7 +35,8 @@ public class MenuPrincipal {
                     venda.realizarVenda(usuarioID);
                     break;
                 case 3:
-                    // Chamar o método para mostrar relatório
+                    // Chamar o método de relatórios
+                    relatorios.relatorio(); // Corrigido para chamar o método correto
                     break;
                 case 4:
                     continuar = false;
@@ -44,7 +46,7 @@ public class MenuPrincipal {
 
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
-                break;
+                    break;
             }
         }
     }
