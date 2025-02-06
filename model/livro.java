@@ -1,40 +1,28 @@
 package model;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class livro {
     private int id;
+    private int fornecedorId;
+    private int editoraId;
     private String nome;
-    private String nomeAutor;
-    private String nomeEditora;
-    private double valor;
     private int quantidade;
+    private LocalDateTime dataCadastro;
     private String descricao;
-    private LocalDate dataCadastro;
-    private int fornecedor_id;
-    private int editora_id; //Representa o relacionamento com a tabela fornecedores
+
     
 
     
-    public livro(String nome, String nomeAutor, String nomeEditora, double valor,int quantidade, String descricao, 
-    LocalDate dataCadastro, int fornecedor_id, int editora_id) {
-        this.nome = nome;
-        this.nomeAutor = nomeAutor;
-        this.nomeEditora = nomeEditora;
-        this.valor= valor;
-        this.quantidade = quantidade;
-        this.descricao= descricao;
-        this.dataCadastro = dataCadastro;
-        this.fornecedor_id = fornecedor_id;
-        this.editora_id= editora_id;
-    }
-    public livro (int id, int fornecedor_id, int editora_id, String nome, int quantidade, LocalDate dataCadastro){
+    public livro(int id, int fornecedorId, int editoraId, String nome, int quantidade, LocalDateTime dataCadastro, String descricao) {
         this.id = id;
-        this.fornecedor_id = fornecedor_id;
-        this.editora_id = editora_id;
+        this.fornecedorId = fornecedorId;
+        this.editoraId = editoraId;
         this.nome = nome;
         this.quantidade = quantidade;
         this.dataCadastro = dataCadastro;
+        this.descricao = descricao;
     }
 
     public livro(){
@@ -70,39 +58,6 @@ public class livro {
         this.nome = nome;
     }
 
-    //retorno do nome do Autor 
-    public String getnomeAutor(){
-    return nomeAutor;
-
-    }
-
-    //inserção do nome do Autor 
-    public void setnomeAutor(String nomeAutor) {
-        this.nomeAutor = nomeAutor;
-    }
-
-    //retorno do nome da Editora
-    public String getnomeEditora() {
-        return nomeEditora;
-    }
-
-    //inserção do nome da Editora
-    public void setnomeEditora(String nomeEditora) {
-        this.nomeEditora = nomeEditora;
-    }
-
-    //retorno do valor 
-    public double getvalor()
-    {
-        return valor;
-    }
-
-    //inserção do valor
-    public void setvalor(double valor)
-    {
-        this.valor = valor;
-    }
-
     //retorno da quantidade
     public int getquantidade(){
         return quantidade;
@@ -127,34 +82,34 @@ public class livro {
     }
 
     //retorno da fk do fornecedor 
-    public int getfornecedorID(){
-        return fornecedor_id;
+    public int getfornecedorId(){
+        return fornecedorId;
     }
     //retorno da fk do fornecedor 
     public void setfornecedorID(int fornecedor_id){
-        this.fornecedor_id= fornecedor_id;
+        this.fornecedorId= fornecedor_id;
 
     }   
 
     //retorno da data de cadastro 
-    public LocalDate getdataCadastro(){
+    public LocalDateTime getdataCadastro(){
 
         return dataCadastro;
     }
 
     //inserção da data de cadastro
-    public void setdataCadastro(LocalDate dataCadatro){
+    public void setdataCadastro(LocalDateTime dataCadatro){
 
         this.dataCadastro= dataCadatro;
         
     }
 
     public int geteditoraId (){
-        return editora_id;
+        return editoraId;
 
     }
     public void seteditora(int editora_id){
-        this.editora_id= editora_id;
+        this.editoraId= editora_id;
     }
 
 }

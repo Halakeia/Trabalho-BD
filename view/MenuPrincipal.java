@@ -2,7 +2,7 @@ package view;
 
 // No momento essa class será para testar os comandos do CRUD 
 
-
+import model.*;
 import java.util.Scanner;
 
 public class MenuPrincipal {
