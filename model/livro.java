@@ -2,7 +2,7 @@ package model;
 
 import java.time.LocalDate;
 
-public class livros {
+public class livro {
     private int id;
     private String nome;
     private String nomeAutor;
@@ -16,7 +16,7 @@ public class livros {
     
 
     
-    public livros(String nome, String nomeAutor, String nomeEditora, double valor,int quantidade, String descricao, 
+    public livro(String nome, String nomeAutor, String nomeEditora, double valor,int quantidade, String descricao, 
     LocalDate dataCadastro, int fornecedor_id, int editora_id) {
         this.nome = nome;
         this.nomeAutor = nomeAutor;
@@ -28,7 +28,7 @@ public class livros {
         this.fornecedor_id = fornecedor_id;
         this.editora_id= editora_id;
     }
-    public livros (int id, int fornecedor_id, int editora_id, String nome, int quantidade, LocalDate dataCadastro){
+    public livro (int id, int fornecedor_id, int editora_id, String nome, int quantidade, LocalDate dataCadastro){
         this.id = id;
         this.fornecedor_id = fornecedor_id;
         this.editora_id = editora_id;
@@ -37,7 +37,7 @@ public class livros {
         this.dataCadastro = dataCadastro;
     }
 
-    public livros(){
+    public livro(){
         
     }
     
@@ -46,7 +46,7 @@ public class livros {
 //Getters = - retornam os dados 
 // Setters = - colocam os dados
  
-    public livros(int int1, String string, String string2, String string3, double double1, int int2,
+    public livro(int int1, String string, String string2, String string3, double double1, int int2,
             LocalDate localDate, int int3, int int4) {
     }
     //retorno do id

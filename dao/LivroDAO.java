@@ -1,6 +1,6 @@
 package dao;
 
-import model.livros;
+import model.livro;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
 
 public class LivroDAO {
     // Cria um novo fornecedor
-    public void criar_Livro(livros livros) 
+    public void criar_Livro(livro livros) 
     {
         String sql = "INSERT INTO livro (nome,nomeAutor, nomeEditora, valor, quantidade, dataCadastro, descricao, fornecedor, editora) VALUES (?, ?)"; //como vai ser enviado para o banco de dados
         try (Connection conn = Conexao.conectar();
@@ -47,9 +47,9 @@ public class LivroDAO {
         }
 
     //Método para Ler todos os fornecedores 
-    public List<livros> listar_Livro(){
+    public List<livro> listar_Livro(){
 
-        List<livros> lista = new ArrayList<>();
+        List<livro> lista = new ArrayList<>();
         String sql = "SELECT * FROM livro";
 
         try (Connection conn = Conexao.conectar();
@@ -58,7 +58,7 @@ public class LivroDAO {
             ResultSet rs = stmt.executeQuery()) {
 
             while (rs.next()) {
-                livros livros =  new livros (
+                livro livros =  new livro (
                 rs.getInt("id"), 
                 rs.getString("nome"),
                 rs.getString("nomeAutor"),
@@ -79,7 +79,7 @@ public class LivroDAO {
     }
 
     //Metodo para atualizar os dados 
-    public void atualizar_Livro(livros livros) 
+    public void atualizar_Livro(livro livros) 
     {
         String sql = "UPDATE livro SET nome = ?, nomeAutor = ?, nomeEditora =?, valor= ?, quantidade = ?, dataCadastro=?, descricao=?, fornecedor=?, editora=? WHERE id = ?";
 
@@ -121,7 +121,7 @@ public class LivroDAO {
         }
     }
 
-    public livros buscarLivros(String nome) {
+    public livro buscarLivros(String nome) {
         String sql = "SELECT * FROM livro WHERE id = ?";
         try (Connection conexao = Conexao.conectar();
             PreparedStatement stmt = conexao.prepareStatement(sql)) {
@@ -131,7 +131,7 @@ public class LivroDAO {
 
             if (rs.next()) {
                 // Se o cliente existir, cria o objeto Cliente
-                livros livros = new livros(
+                livro livros = new livro(
                         rs.getInt("id"),
                         rs.getInt("fornecedor_id"),
                         rs.getInt("editora_id"),

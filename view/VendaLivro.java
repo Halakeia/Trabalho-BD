@@ -11,12 +11,12 @@ import dao.*;
 public class VendaLivro {
     Scanner scanner = new Scanner(System.in);
     VendaDAO vendaDAO = new VendaDAO();
-    LivroDAO livrosDAO = new LivroDAO();
+    LivroDAO livroDAO = new LivroDAO();
     itemVendaDAO itemVendaDAO = new itemVendaDAO();
     ClienteDAO clienteDAO = new ClienteDAO();
     // Método para adicionar uma venda e os itens de venda
     public void realizarVenda(int usuarioID){
-        livros livro = new livros();
+        livro livro = new livro();
         System.out.println("\n------------------------\n");
         System.out.println("Realizar Venda:");
         System.out.println("Informe o nome do Cliente: ");
@@ -48,7 +48,7 @@ public class VendaLivro {
 
             // Verificar se o livro existe
             
-            if ((livro = livrosDAO.buscarLivros(nomeLivro)) == null) {
+            if ((livro = livroDAO.buscarLivros(nomeLivro)) == null) {
                 System.out.println("Livro não encontrado, tente novamente.");
                 continue;
             }
