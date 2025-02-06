@@ -23,6 +23,10 @@ public class livro {
         this.descricao = descricao;
     }
 
+    public livro() {
+        
+    }
+
 
     public int getId() {
         return this.id;
