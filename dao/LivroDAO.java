@@ -90,7 +90,7 @@ public class LivroDAO {
     }
 
     public livro buscarLivros(String nome) {
-        String sql = "SELECT * FROM livro WHERE id = ?";
+        String sql = "SELECT * FROM livro WHERE nome = ?";
         try (Connection conexao = Conexao.conectar();
             PreparedStatement stmt = conexao.prepareStatement(sql)) {
             // Busca na tabela de clientes
