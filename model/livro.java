@@ -38,77 +38,77 @@ public class livro {
             LocalDate localDate, int int3, int int4) {
     }
     //retorno do id
-    public int getid()
+    public int getId()
     {
     return id;
     }
 
     //inserção do id
-    public void setid(int id) 
+    public void setId(int id) 
     {
         this.id = id;
     }
 
     //retorno do nome
-    public String getnome() {
+    public String getNome() {
         return nome;
     }
     //inserção do nome
-    public void setnome(String nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
     //retorno da quantidade
-    public int getquantidade(){
+    public int getQuantidade(){
         return quantidade;
     }
     
     //inserção da quantidade
-    public void setquantidade(int quantidade){
+    public void setQuantidade(int quantidade){
         this.quantidade = quantidade;
 
     }
     
     //retorno da quantidade
-    public String getdescricao(){
+    public String getDescricao(){
         return descricao;
 
     }
     
     //inserção da  descrição
-    public void setdescricao(String descricao){
+    public void setDescricao(String descricao){
         this.descricao = descricao;
 
     }
 
     //retorno da fk do fornecedor 
-    public int getfornecedorId(){
+    public int getFornecedorId(){
         return fornecedorId;
     }
     //retorno da fk do fornecedor 
-    public void setfornecedorID(int fornecedor_id){
+    public void setFornecedorID(int fornecedor_id){
         this.fornecedorId= fornecedor_id;
 
     }   
 
     //retorno da data de cadastro 
-    public LocalDateTime getdataCadastro(){
+    public LocalDateTime getDataCadastro(){
 
         return dataCadastro;
     }
 
     //inserção da data de cadastro
-    public void setdataCadastro(LocalDateTime dataCadatro){
+    public void setDataCadastro(LocalDateTime dataCadatro){
 
         this.dataCadastro= dataCadatro;
         
     }
 
-    public int geteditoraId (){
+    public int getEditoraId (){
         return editoraId;
 
     }
-    public void seteditora(int editora_id){
+    public void setEditora(int editora_id){
         this.editoraId= editora_id;
     }
 

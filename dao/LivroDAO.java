@@ -1,7 +1,7 @@
 package dao;
 
-import model.livro;
 import java.sql.*;
+import model.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,25 +9,21 @@ import java.util.List;
 public class LivroDAO {
     private Connection connection;
 
-    public LivroDAO(Connection connection) {
-        this.connection = connection;
-    }
-
     public void inserirLivro(livro livro) {
         String sql = "INSERT INTO livro (fornecedor_id, editora_id, nome, quantidade, dataCadastro, descricao) VALUES (?, ?, ?, ?, ?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-            stmt.setInt(1, livro.getfornecedorId());
-            stmt.setInt(2, livro.geteditoraId());
-            stmt.setString(3, livro.getnome());
-            stmt.setInt(4, livro.getquantidade());
-            stmt.setTimestamp(5, Timestamp.valueOf(livro.getdataCadastro()));
-            stmt.setString(6, livro.getdescricao());
+            stmt.setInt(1, livro.getFornecedorId());
+            stmt.setInt(2, livro.getEditoraId());
+            stmt.setString(3, livro.getNome());
+            stmt.setInt(4, livro.getQuantidade());
+            stmt.setTimestamp(5, Timestamp.valueOf(livro.getDataCadastro()));
+            stmt.setString(6, livro.getDescricao());
 
             int affectedRows = stmt.executeUpdate();
             if (affectedRows > 0) {
                 try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
                     if (generatedKeys.next()) {
-                        livro.setid(generatedKeys.getInt(1));
+                        livro.setId(generatedKeys.getInt(1));
                     }
                 }
             }
@@ -67,13 +63,13 @@ public class LivroDAO {
     public void atualizarLivro(livro livro) {
         String sql = "UPDATE livro SET fornecedor_id = ?, editora_id = ?, nome = ?, quantidade = ?, dataCadastro = ?, descricao = ? WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setInt(1, livro.getfornecedorId());
-            stmt.setInt(2, livro.geteditoraId());
-            stmt.setString(3, livro.getnome());
-            stmt.setInt(4, livro.getquantidade());
-            stmt.setTimestamp(5, Timestamp.valueOf(livro.getdataCadastro()));
-            stmt.setString(6, livro.getdescricao());
-            stmt.setInt(7, livro.getid());
+            stmt.setInt(1, livro.getFornecedorId());
+            stmt.setInt(2, livro.getEditoraId());
+            stmt.setString(3, livro.getNome());
+            stmt.setInt(4, livro.getQuantidade());
+            stmt.setTimestamp(5, Timestamp.valueOf(livro.getDataCadastro()));
+            stmt.setString(6, livro.getDescricao());
+            stmt.setInt(7, livro.getId());
 
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -109,7 +105,7 @@ public class LivroDAO {
                         rs.getInt("editora_id"),
                         rs.getString("nome"),
                         rs.getInt("quantidade"),
-                        rs.getDate("dataCadastro").toLocalDate().atStartOfDay(),
+                        rs.getTimestamp("dataCadastro").toLocalDateTime(),
                         rs.getString("descricao")
                 );
                 return livros;

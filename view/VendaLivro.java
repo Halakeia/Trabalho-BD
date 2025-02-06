@@ -54,7 +54,7 @@ public class VendaLivro {
             }
 
             // Adiciona o item à lista
-            itens.add(new itemVenda(livro.getid(), venda.getId(), quantidade));
+            itens.add(new itemVenda(livro.getId(), venda.getId(), quantidade));
         }
 
 
